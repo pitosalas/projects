@@ -19,7 +19,7 @@ require 'pry-byebug'
 preprocess do
 end
 
-compile '/home/' do
+compile '/' do
   puts "++++ Compile home"
   puts items
   filter_by_extension(item)
@@ -50,6 +50,7 @@ compile '*' do
 end
 
 route '*' do
+  puts item.inspect
   if item[:extension] == 'css'
     # Write item with identifier /foo/ to /foo.css
     item.identifier.chop + '.css'
